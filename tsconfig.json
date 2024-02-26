@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist/", // место сборки (не важно т.к. собирает вебпак)
+		"noImplicitAny": true, // подсветка мест, где нет типа
+		"module": "ESNext",
+		"target": "es5", // в какую спец. компилируется для поддержки бразуеров
+		"jsx": "react-jsx",
+		"allowJs": true, // позволяет обрабатывать не только ts, но и js
+		"moduleResolution": "node",
+		"baseUrl": ".", // для абсолютных импортов
+		// позволяет работать с пакетами,
+		// которые используют commonJS как с обычными с помощью import
+		"esModuleInterop": true,
+		// позволяет работать с библ без default import
+		"allowSyntheticDefaultImports": true,
+		"plugins": [{ "name": "typescript-plugin-css-modules" }]
+	},
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
+		}
+	}
+}
