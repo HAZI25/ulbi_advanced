@@ -8,6 +8,9 @@
 		"allowJs": true, // позволяет обрабатывать не только ts, но и js
 		"moduleResolution": "node",
 		"baseUrl": ".", // для абсолютных импортов
+		"paths": {
+			"*": ["./src/*"]
+		},
 		// позволяет работать с пакетами,
 		// которые используют commonJS как с обычными с помощью import
 		"esModuleInterop": true,
