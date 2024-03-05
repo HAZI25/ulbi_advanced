@@ -1,6 +1,7 @@
 import { ModuleOptions } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
+import ReactRefreshTypeScript from 'react-refresh-typescript';
 
 function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 	const { mode } = options;
@@ -8,11 +9,31 @@ function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 	const isDev = mode === 'development';
 	const isProd = !isDev;
 
-	const typeScriptLoader = {
-		test: /\.tsx?$/,
-		use: 'ts-loader',
-		exclude: /node_modules/,
+	const svgLoader = {
+		test: /\.svg$/,
+		use: ['@svgr/webpack'],
 	};
+
+	const assetLoader = {
+		test: /\.(png|jpg|jpeg|gif)$/i,
+		type: 'asset/resource',
+	};
+
+const typeScriptLoader = {
+	test: /\.tsx?$/,
+	use: [
+		{
+			loader: 'ts-loader',
+			options: {
+				getCustomTransformers: () => ({
+					before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+				}),
+				transpileOnly: isDev,
+			},
+		},
+	],
+	exclude: /node_modules/,
+};
 
 	const cssLoader = {
 		test: /\.s[ac]ss$/i,
@@ -33,7 +54,7 @@ function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 		],
 	};
 
-	return [typeScriptLoader, cssLoader];
+	return [typeScriptLoader, cssLoader, assetLoader, svgLoader];
 }
 
 export default buildLoaders;

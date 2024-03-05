@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, { Configuration } from 'webpack';
 import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 function buildPlugins(options: BuildOptions): Configuration['plugins'] {
 	const { paths, mode } = options;
@@ -14,6 +15,9 @@ function buildPlugins(options: BuildOptions): Configuration['plugins'] {
 			template: paths.html,
 		}),
 		new webpack.ProgressPlugin(),
+		new webpack.DefinePlugin({
+			IS_DEV: JSON.stringify(isDev),
+		}),
 	];
 
 	if (isProd) {
@@ -26,6 +30,7 @@ function buildPlugins(options: BuildOptions): Configuration['plugins'] {
 	}
 
 	if (isDev) {
+		plugins.push(new ReactRefreshWebpackPlugin());
 	}
 
 	return plugins;
