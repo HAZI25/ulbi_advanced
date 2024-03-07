@@ -1,5 +1,5 @@
 import { Link, LinkProps } from 'react-router-dom';
-import { classNames } from '6_shared/lib/classNames';
+import { classNames } from '6_shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkVariant {

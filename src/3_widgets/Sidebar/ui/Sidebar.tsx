@@ -1,4 +1,4 @@
-import { classNames } from '6_shared/lib/classNames';
+import { classNames } from '6_shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss';
 import { useState } from 'react';
 import { ThemeSwitcher } from '4_features/ThemeSwitcher';

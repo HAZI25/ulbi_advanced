@@ -1,4 +1,4 @@
-import { classNames } from '6_shared/lib/classNames';
+import { classNames } from '6_shared/lib/classNames/classNames';
 import { useTheme } from '../lib/useTheme';
 import LightIcon from '../assets/theme-light.svg';
 import DarkIcon from '../assets/theme-dark.svg';
