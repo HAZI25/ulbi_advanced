@@ -19,21 +19,21 @@ function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 		type: 'asset/resource',
 	};
 
-const typeScriptLoader = {
-	test: /\.tsx?$/,
-	use: [
-		{
-			loader: 'ts-loader',
-			options: {
-				getCustomTransformers: () => ({
-					before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
-				}),
-				transpileOnly: isDev,
+	const typeScriptLoader = {
+		test: /\.tsx?$/,
+		use: [
+			{
+				loader: 'ts-loader',
+				options: {
+					getCustomTransformers: () => ({
+						before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+					}),
+					transpileOnly: isDev,
+				},
 			},
-		},
-	],
-	exclude: /node_modules/,
-};
+		],
+		exclude: /node_modules/,
+	};
 
 	const cssLoader = {
 		test: /\.s[ac]ss$/i,

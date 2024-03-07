@@ -1,5 +1,4 @@
 import { classNames } from '6_shared/lib/classNames';
-import cls from './ThemeSwitcher.module.scss';
 import { useTheme } from '../lib/useTheme';
 import LightIcon from '../assets/theme-light.svg';
 import DarkIcon from '../assets/theme-dark.svg';
@@ -18,8 +17,7 @@ const ThemeSwitcher = (props: ThemeSwitcherProps) => {
 		<Button
 			variant={ButtonVariant.CLEAR}
 			onClick={toggleTheme}
-			className={classNames(cls.ThemeSwitcher, className)}
-		>
+			className={classNames(className)}>
 			{theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
 		</Button>
 	);

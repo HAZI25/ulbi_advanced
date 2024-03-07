@@ -1,5 +1,6 @@
 {
-	"language": "Русский",
-	"mainPage": "Главная",
-	"aboutPage": "О нас"
+  "language": "Русский",
+  "mainPage": "Главная",
+  "aboutPage": "О нас",
+  "toggle": "Свернуть"
 }

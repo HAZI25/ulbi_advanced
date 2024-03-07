@@ -8,7 +8,6 @@ const LangSwitcher = () => {
 		i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
 	};
 
-
 	return <Button onClick={toggleLang}>{t('language')}</Button>;
 };
 

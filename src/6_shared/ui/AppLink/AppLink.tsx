@@ -24,8 +24,7 @@ const AppLink = (props: AppLinkProps) => {
 		<Link
 			to={to}
 			className={classNames(cls.AppLink, cls[variant], className)}
-			{...rest}
-		>
+			{...rest}>
 			{children}
 		</Link>
 	);

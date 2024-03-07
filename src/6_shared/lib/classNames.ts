@@ -18,8 +18,8 @@ export function classNames(...args: ClassValue[]): string {
 		} else if (typeof cls === 'object') {
 			const c = classNames(
 				...Object.entries(cls)
-					.filter(([className, value]) => Boolean(value))
-					.map(([className, value]) => className)
+					.filter(([_, value]) => Boolean(value))
+					.map(([className, _]) => className),
 			);
 			if (c) classes = classes.concat(c);
 		}

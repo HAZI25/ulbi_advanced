@@ -15,8 +15,7 @@ const Button = (props: ButtonProps) => {
 	return (
 		<button
 			className={classNames(cls.Button, cls[variant], className)}
-			{...rest}
-		>
+			{...rest}>
 			{children}
 		</button>
 	);

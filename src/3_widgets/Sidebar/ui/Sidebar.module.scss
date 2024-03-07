@@ -1,9 +1,8 @@
 .Sidebar {
-	height: calc(100vh - var(--navbar-height));
-	width: var(--sidebar-width);
-	background-color: var(--bg-color-inverted);
-
 	position: relative;
+	width: var(--sidebar-width);
+	height: calc(100vh - var(--navbar-height));
+	background-color: var(--bg-color-inverted);
 	transition: width 300ms ease-in-out;
 
 	&.collapsed {
