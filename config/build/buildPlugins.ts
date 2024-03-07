@@ -3,6 +3,7 @@ import webpack, { Configuration } from 'webpack';
 import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 function buildPlugins(options: BuildOptions): Configuration['plugins'] {
 	const { paths, mode } = options;
@@ -30,7 +31,10 @@ function buildPlugins(options: BuildOptions): Configuration['plugins'] {
 	}
 
 	if (isDev) {
-		plugins.push(new ReactRefreshWebpackPlugin());
+		plugins.push(
+			new ReactRefreshWebpackPlugin(),
+			new ForkTsCheckerWebpackPlugin(),
+		);
 	}
 
 	return plugins;
