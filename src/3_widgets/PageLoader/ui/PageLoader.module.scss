@@ -1,0 +1,6 @@
+.PageLoader {
+	display: flex;
+	height: calc(100vh - var(--navbar-height));
+	align-items: center;
+	justify-content: center;
+}

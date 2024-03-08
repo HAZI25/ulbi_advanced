@@ -2,5 +2,8 @@
   "language": "Русский",
   "mainPage": "Главная",
   "aboutPage": "О нас",
-  "toggle": "Свернуть"
+  "toggle": "Свернуть",
+  "page_not_found": "Страница не найдена",
+  "error_occurred": "Произошла ошибка",
+  "reload_page": "Обновить страницу"
 }

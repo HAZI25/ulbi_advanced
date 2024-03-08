@@ -2,5 +2,8 @@
   "language": "English",
   "mainPage": "Main",
   "aboutPage": "About Us",
-  "toggle": "Toggle"
+  "toggle": "Toggle",
+  "page_not_found": "Page Not Found",
+  "error_occurred": "An error occurred",
+  "reload_page": "Reload page"
 }
