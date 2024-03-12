@@ -4,8 +4,13 @@
  */
 
 import type { Config } from 'jest';
+import path from 'path';
 
 const config: Config = {
+	moduleNameMapper: {
+		'\\.(s?css)$': 'identity-obj-proxy',
+		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+	},
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
 
@@ -22,7 +27,7 @@ const config: Config = {
 	// An array of regexp pattern strings used to skip coverage collection
 	coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 	// An array of directory names to be searched recursively up from the requiring module's location
-	moduleDirectories: ['node_modules'],
+	moduleDirectories: ['node_modules', 'src'],
 	// An array of file extensions your modules use
 	moduleFileExtensions: [
 		'js',
@@ -38,6 +43,8 @@ const config: Config = {
 	rootDir: '../../',
 	// The glob patterns Jest uses to detect test files
 	testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
+
+	setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
 
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,

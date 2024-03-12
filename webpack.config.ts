@@ -15,6 +15,7 @@ export default (env: EnvVar) => {
 		mode: env.mode ?? 'development',
 		paths,
 		port: env.port ?? 3000,
+		analyzer: env.analyzer,
 	});
 
 	return config;

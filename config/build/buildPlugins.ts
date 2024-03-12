@@ -4,9 +4,10 @@ import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 function buildPlugins(options: BuildOptions): Configuration['plugins'] {
-	const { paths, mode } = options;
+	const { paths, mode, analyzer } = options;
 
 	const isDev = mode === 'development';
 	const isProd = !isDev;
@@ -28,6 +29,10 @@ function buildPlugins(options: BuildOptions): Configuration['plugins'] {
 				chunkFilename: 'css/[name].[contenthash:8].css',
 			}),
 		);
+	}
+
+	if (analyzer) {
+		plugins.push(new BundleAnalyzerPlugin());
 	}
 
 	if (isDev) {
